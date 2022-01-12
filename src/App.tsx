@@ -1,15 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Counter } from './components/Counter/Counter';
+import { Form } from './components/Form/Form';
 
-const Title: React.FC = () => <h1>Hello, world!</h1>;
+type TitleProps = {
+  title: string;
+  test?: string;
+};
+
+const Title = ({ title, test = 'test' }: TitleProps) => (
+  <h1>
+    Hello, world! {title} {test}
+  </h1>
+);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Title />
+        <Title title="Oleg" />
+        <Form />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -21,6 +33,7 @@ function App() {
         >
           Learn React
         </a>
+        <Counter title="BLABLABLA" />
       </header>
     </div>
   );
