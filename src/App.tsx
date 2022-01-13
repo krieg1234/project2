@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { Counter } from './components/Counter/Counter';
 import { Form } from './components/Form/Form';
+import { Context, Login, Profile } from './components/Context/Login';
+import Hook from './components/Hook/Hook';
 
 type TitleProps = {
   title: string;
@@ -20,7 +22,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Title title="Oleg" />
+        {/* <Title title="Oleg" />
         <Form />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -33,7 +35,10 @@ function App() {
         >
           Learn React
         </a>
-        <Counter title="BLABLABLA" />
+        <Counter title="BLABLABLA" /> */}
+        {/* <Login />
+        <Context /> */}
+        <Hook />
       </header>
     </div>
   );
