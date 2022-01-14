@@ -1,44 +1,33 @@
 import React, { useState } from 'react';
+import Alert from './Alert';
+import { AlertProvider } from './AlertContext';
+import UseCallbackLesson from './UseCallbackLesson';
+import UseContextLesson from './UseContextLesson';
+import UseEfectHook from './useEfectLesson';
+import UseMemoLesson from './UseMemoLesson';
+import UseRefLesson from './UseRefLesson';
+import UseStateHook from './useStateLesson';
 
-function computeInitialCounter(): number {
-  console.log('computing....');
-  return Math.trunc(Math.random() * 20);
-}
+// export const AlertContext=React.createContext(false);
 
 function Hook() {
-  const [counter, setCounter] = useState(() => computeInitialCounter());
-  const [state, setState] = useState({
-    title: 'COUNTER',
-    date: Date.now(),
-  });
+  // const [alert,setAlert]=useState(false)
 
-  function increment(): void {
-    // setCounter(counter + 1);
-    setCounter((prevState) => {
-      return prevState + 1;
-    });
-  }
+  // const toggleAlert=()=>{
+  //   setAlert((prev)=>!prev)
+  //   console.log(`alert: ${alert}`)
+  // }
 
-  function decrement(): void {
-    setCounter(counter - 1);
-  }
-
-  function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    setState((prevState) => {
-      return {
-        ...prevState,
-        title: e.target.value,
-      };
-    });
-  }
   return (
-    <>
-      <h1>{counter}</h1>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-      <input onChange={inputHandler}></input>
-      <pre>{JSON.stringify(state, null, 4)}</pre>
-    </>
+    // <AlertContext.Provider value={alert}>
+    //   <UseContextLesson toggle={toggleAlert}/>
+    //   <Alert />
+    // </AlertContext.Provider>
+
+    <AlertProvider>
+      <Alert />
+      <UseContextLesson />
+    </AlertProvider>
   );
 }
 
